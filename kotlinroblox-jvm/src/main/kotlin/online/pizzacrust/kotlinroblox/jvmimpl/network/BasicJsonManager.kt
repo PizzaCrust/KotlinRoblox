@@ -8,8 +8,8 @@ class BasicJsonManager : JsonManager {
         return Gson().toJson(obj)
     }
 
-    override fun fromJson(json: String, className: String?): Any {
+    override fun fromJson(json: String, className: Any?): Any {
         if (className == null) throw RuntimeException("Class name is required on the JVM!")
-        return Gson().fromJson(json, Class.forName(className))
+        return Gson().fromJson(json, className.javaClass)
     }
 }

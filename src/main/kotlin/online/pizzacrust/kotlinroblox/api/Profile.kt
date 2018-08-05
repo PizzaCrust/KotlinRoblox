@@ -4,6 +4,9 @@ interface Profile {
 
     val id: Long
 
-    val uesrname: Long
+    val username: String
+
+    val profileUrl: String
+        get() = "https://www.roblox.com/users/$id/profile"
 
 }
