@@ -28,6 +28,11 @@ class StdProfile : Profile {
         constructor(): this(null, null)
     }
 
+    internal constructor(id: Long, username: String) {
+        this.internalId = id
+        this.internalUsername = username
+    }
+
     @Deprecated("Do not use this without catching it.")
     constructor(username: String) {
         val url = "http://api.roblox.com/users/get-by-username?username=$username"

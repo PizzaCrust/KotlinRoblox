@@ -2,7 +2,7 @@ package online.pizzacrust.kotlinroblox.api
 
 enum class Club {
     NONE,
-    BUILDERS,
+    CLASSIC,
     TURBO,
     OUTRAGEOUS,
 }
