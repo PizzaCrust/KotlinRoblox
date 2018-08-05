@@ -18,3 +18,5 @@
 !/README.md
 !/LICENSE.txt
 !/.gitignore
+!/kotlinroblox-jvm
+kotlinroblox-jvm/kotlinrobloxjvm.iml
