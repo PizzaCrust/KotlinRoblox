@@ -1,24 +1,23 @@
-package online.pizzacrust.kotlinroblox.jsimpl
+package online.pizzacrust.kotlinroblox.jvmimpl
 
 import online.pizzacrust.kotlinroblox.Implementation
-import online.pizzacrust.kotlinroblox.jsimpl.network.BasicJsonManager
-import online.pizzacrust.kotlinroblox.jsimpl.network.BasicRequestManager
-import online.pizzacrust.kotlinroblox.jsimpl.xml.BasicElement
+import online.pizzacrust.kotlinroblox.jvmimpl.network.BasicJsonManager
+import online.pizzacrust.kotlinroblox.jvmimpl.network.BasicRequestManager
+import online.pizzacrust.kotlinroblox.jvmimpl.xml.BasicElement
 import online.pizzacrust.kotlinroblox.network.JsonManager
 import online.pizzacrust.kotlinroblox.network.RequestsManager
 import online.pizzacrust.kotlinroblox.xml.Element
-import org.w3c.dom.parsing.DOMParser
+import org.jsoup.Jsoup
 
 val implJsonManager: JsonManager = BasicJsonManager()
 val implReqManager: RequestsManager = BasicRequestManager()
 
-class JSImplementation: Implementation {
+class JVMImplementation: Implementation {
     override val jsonManager: JsonManager
         get() = implJsonManager
     override val reqManager: RequestsManager
         get() = implReqManager
     override fun parseXml(xml: String): Element {
-        val parser = DOMParser()
-        return BasicElement(parser.parseFromString(xml, "text/xml"))
+        return BasicElement(Jsoup.parse(xml))
     }
 }

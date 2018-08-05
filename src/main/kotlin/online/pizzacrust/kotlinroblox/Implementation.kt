@@ -2,7 +2,7 @@ package online.pizzacrust.kotlinroblox
 
 import online.pizzacrust.kotlinroblox.network.JsonManager
 import online.pizzacrust.kotlinroblox.network.RequestsManager
-import online.pizzacrust.kotlinroblox.xml.Document
+import online.pizzacrust.kotlinroblox.xml.Element
 
 interface Implementation {
 
@@ -10,7 +10,7 @@ interface Implementation {
 
     val reqManager: RequestsManager
 
-    fun parseXml(xml: String): Document
+    fun parseXml(xml: String): Element
 
 }
 

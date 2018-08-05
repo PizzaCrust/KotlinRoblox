@@ -1,10 +1,11 @@
 package online.pizzacrust.kotlinroblox.jsimpl.xml
 
 import online.pizzacrust.kotlinroblox.xml.Element
+import org.w3c.dom.Node
 import org.w3c.dom.asList
 import kotlin.dom.isElement
 
-class BasicElement(val element: org.w3c.dom.Element): Element {
+class BasicElement(val element: Node): Element {
 
     override val elements: List<Element>
         get() {
@@ -18,12 +19,25 @@ class BasicElement(val element: org.w3c.dom.Element): Element {
         }
 
     override fun attribute(attributeName: String): String? {
-        return element.getAttribute(attributeName)
+        if (element.isElement) {
+            return (element as org.w3c.dom.Element).getAttribute(attributeName)
+        }
+        return null
     }
 
     override val tagName: String
-        get() = element.tagName
+        get() {
+            if (element.isElement) {
+                return (element as org.w3c.dom.Element).tagName
+            }
+            throw RuntimeException("Is not a JS XML element!")
+        }
 
     override val text: String?
-        get() = element.textContent
+        get() {
+            if (element.isElement) {
+                return (element as org.w3c.dom.Element).textContent
+            }
+            throw RuntimeException("Is not a JS XML element!")
+        }
 }
