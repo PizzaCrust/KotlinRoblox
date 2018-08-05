@@ -11,23 +11,21 @@ fun profile(username: String): Profile? {
     }
 }
 
-class StdProfile: Profile {
+class StdProfile @Deprecated("Do not use this without catching it.") constructor(username: String) : Profile {
 
     private val internalId: Long
-    private val internalUsername: String
+    private val internalUsername: String = username
 
     data class UsernameToIdResponse(var userId: Long?) {
         constructor(): this(null)
     }
 
-    @Deprecated("Do not use this without catching it.")
-    constructor(username: String) {
+    init {
         val url = "http://api.roblox.com/users/get-by-username?username=$username"
         val responseText = implementation.reqManager.get(url).response
         val parsed: UsernameToIdResponse = implementation.jsonManager.fromJson(responseText,
                 UsernameToIdResponse()) as UsernameToIdResponse
         this.internalId = parsed.userId ?: throw RuntimeException("invalid username")
-        this.internalUsername = username
     }
 
     override val id: Long
