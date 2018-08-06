@@ -18,6 +18,6 @@ class JVMImplementation: Implementation {
     override val reqManager: RequestsManager
         get() = implReqManager
     override fun parseXml(xml: String): Element {
-        return BasicElement(Jsoup.parse(xml))
+        return BasicElement(Jsoup.parse(xml).body())
     }
 }
