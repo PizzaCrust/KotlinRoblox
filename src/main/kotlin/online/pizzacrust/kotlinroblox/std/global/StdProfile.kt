@@ -24,7 +24,7 @@ class StdProfile : Profile {
     private val internalId: Long
     private val internalUsername: String
 
-    data class UsernameToIdResponse(var userId: Long?, var username: String?) {
+    data class UsernameToIdResponse(var Id: Long?, var Username: String?) {
         constructor(): this(null, null)
     }
 
@@ -39,7 +39,7 @@ class StdProfile : Profile {
         val responseText = implementation.reqManager.get(url).response
         val parsed: UsernameToIdResponse = implementation.jsonManager.fromJson(responseText,
                 UsernameToIdResponse()) as UsernameToIdResponse
-        this.internalId = parsed.userId ?: throw RuntimeException("invalid username")
+        this.internalId = parsed.Id ?: throw RuntimeException("invalid username")
         this.internalUsername = username
     }
 
@@ -49,7 +49,7 @@ class StdProfile : Profile {
         val responseText = implementation.reqManager.get(url).response
         val parsed: UsernameToIdResponse = implementation.jsonManager.fromJson(responseText,
                 UsernameToIdResponse()) as UsernameToIdResponse
-        this.internalUsername = parsed.username ?: throw RuntimeException("invalid id")
+        this.internalUsername = parsed.Username ?: throw RuntimeException("invalid id")
         this.internalId = id
     }
 

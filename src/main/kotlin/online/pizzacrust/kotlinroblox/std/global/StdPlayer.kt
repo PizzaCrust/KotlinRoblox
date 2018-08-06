@@ -30,18 +30,7 @@ class StdPlayer(profile: Profile): Player, Profile by profile {
 
     override val pastUsernames: List<String>
         get() {
-            val names = ArrayList<String>()
-            val rootNode1 = cachedProfile.elementsByClass("profile-name-history")
-            if (!rootNode1.isEmpty()) {
-                val rootNode = rootNode1.first()
-                val pastNamesElement = rootNode.elementsByClass("tooltip-pastnames").first()
-                val pastNamesUnparsed = pastNamesElement.attribute("title")
-                val splitted = pastNamesUnparsed!!.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-                for (s in splitted) {
-                    names.add(s.trim())
-                }
-            }
-            return names
+            TODO("Previous implementation didn't work, XML library is not functional.")
         }
 
     data class FriendData(var UserId: Long?, var Username: String?) {
@@ -71,18 +60,6 @@ class StdPlayer(profile: Profile): Player, Profile by profile {
 
     override val club: Club
         get() {
-            val root = cachedProfile.elementsByClass("profile-header-top").first()
-            val topPart = root.elementsByClass("header-title").first()
-            val bc = topPart.elementsByTag("span")
-            if (bc.isEmpty()) {
-                return Club.NONE
-            }
-            val bcType = bc.first().className
-            if (bcType.equals("icon-bc", ignoreCase = true)) {
-                return Club.CLASSIC
-            }
-            return if (bcType.equals("icon-tbc", ignoreCase = true)) {
-                Club.TURBO
-            } else Club.OUTRAGEOUS
+            TODO("Previous implementation didn't work, XML library is not functional.")
         }
 }
