@@ -3,7 +3,14 @@ package online.pizzacrust.kotlinroblox.std.global
 import online.pizzacrust.kotlinroblox.api.global.Profile
 import online.pizzacrust.kotlinroblox.implementation
 
+private val cachedProfiles: MutableList<Profile> = mutableListOf()
+
 fun profile(username: String): Profile? {
+    for (cachedProfile in cachedProfiles) {
+        if (cachedProfile.username == username) {
+            return cachedProfile
+        }
+    }
     return try {
         StdProfile(username)
     } catch (e: RuntimeException) {
@@ -12,6 +19,11 @@ fun profile(username: String): Profile? {
 }
 
 fun profile(userId: Long): Profile? {
+    for (cachedProfile in cachedProfiles) {
+        if (cachedProfile.id == userId) {
+            return cachedProfile
+        }
+    }
     return try {
         StdProfile(userId)
     } catch (e: RuntimeException) {
