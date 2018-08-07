@@ -1,8 +1,7 @@
 import online.pizzacrust.kotlinroblox.implementation
 import online.pizzacrust.kotlinroblox.jvmimpl.JVMImplementation
-import online.pizzacrust.kotlinroblox.std.StdPlayer
-import online.pizzacrust.kotlinroblox.std.StdProfile
-import online.pizzacrust.kotlinroblox.std.profile
+import online.pizzacrust.kotlinroblox.std.global.StdPlayer
+import online.pizzacrust.kotlinroblox.std.global.StdProfile
 import org.junit.jupiter.api.Test
 
 class JvmStdTests {

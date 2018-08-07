@@ -1,8 +1,8 @@
-package online.pizzacrust.kotlinroblox.std
+package online.pizzacrust.kotlinroblox.std.global
 
-import online.pizzacrust.kotlinroblox.api.Club
-import online.pizzacrust.kotlinroblox.api.Player
-import online.pizzacrust.kotlinroblox.api.Profile
+import online.pizzacrust.kotlinroblox.api.global.Club
+import online.pizzacrust.kotlinroblox.api.global.Player
+import online.pizzacrust.kotlinroblox.api.global.Profile
 import online.pizzacrust.kotlinroblox.implementation
 import online.pizzacrust.kotlinroblox.xml.Element
 
@@ -24,7 +24,7 @@ fun player(userId: Long): StdPlayer? {
     }
 }
 
-class StdPlayer(profile: Profile): Player, Profile by profile {
+class StdPlayer(profile: Profile) : Player, Profile by profile {
 
     val cachedProfile: Element = implementation.parseXml(implementation.reqManager.get(profileUrl).response)
 
@@ -38,7 +38,7 @@ class StdPlayer(profile: Profile): Player, Profile by profile {
     }
 
     data class FriendResponse(var Friends: Array<FriendData?>?) {
-        constructor(): this(null)
+        constructor() : this(null)
     }
 
     override val friends: List<Profile>

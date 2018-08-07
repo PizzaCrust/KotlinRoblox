@@ -1,4 +1,4 @@
-package online.pizzacrust.kotlinroblox.api
+package online.pizzacrust.kotlinroblox.api.global
 
 enum class Club {
     NONE,
@@ -10,7 +10,7 @@ enum class Club {
 /**
  * Still work in progress.
  */
-interface Player: Profile {
+interface Player : Profile {
 
     val pastUsernames: List<String>
 

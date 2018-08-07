@@ -1,4 +1,4 @@
-package online.pizzacrust.kotlinroblox.api
+package online.pizzacrust.kotlinroblox.api.global
 
 interface Profile {
 

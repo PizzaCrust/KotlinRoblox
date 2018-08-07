@@ -4,6 +4,6 @@ interface JsonManager {
 
     fun toJson(obj: Any): String
 
-    fun fromJson(json: String, className: Any? = null) : Any
+    fun fromJson(json: String, className: Any? = null): Any
 
 }

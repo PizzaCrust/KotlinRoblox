@@ -1,6 +1,6 @@
 package online.pizzacrust.kotlinroblox.xml
 
-interface Element: HasChildren {
+interface Element : HasChildren {
 
     fun attribute(attributeName: String): String?
 

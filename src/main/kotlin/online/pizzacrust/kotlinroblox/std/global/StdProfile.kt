@@ -1,6 +1,6 @@
-package online.pizzacrust.kotlinroblox.std
+package online.pizzacrust.kotlinroblox.std.global
 
-import online.pizzacrust.kotlinroblox.api.Profile
+import online.pizzacrust.kotlinroblox.api.global.Profile
 import online.pizzacrust.kotlinroblox.implementation
 
 fun profile(username: String): Profile? {
@@ -25,7 +25,7 @@ class StdProfile : Profile {
     private val internalUsername: String
 
     data class UsernameToIdResponse(var Id: Long?, var Username: String?) {
-        constructor(): this(null, null)
+        constructor() : this(null, null)
     }
 
     internal constructor(id: Long, username: String) {
